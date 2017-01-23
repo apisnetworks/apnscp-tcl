@@ -1,33 +1,4 @@
-head     1.1;
-branch   1.1.1;
-access   ;
-symbols  v10:1.1.1.1 apnscp:1.1.1;
-locks    ; strict;
-comment  @# @;
-
-
-1.1
-date     2004.12.13.00.03.55;  author root;  state Exp;
-branches 1.1.1.1;
-next     ;
-
-1.1.1.1
-date     2004.12.13.00.03.55;  author root;  state Exp;
-branches ;
-next     ;
-
-
-desc
-@@
-
-
-
-1.1
-log
-@Initial revision
-@
-text
-@#!/bin/sh
+#!/bin/sh
 # Synopsis:
 #    handles socket requests from WEBppliance, customized
 #    circumvents the 'nobody' level of the Apache service
@@ -866,12 +837,3 @@ if {![file exists [file join /usr apnscp etc .license]]} {
 # vim600: sw=4 ts=4 fdm=marker
 # vim<600: sw=4 ts=4
 #
-@
-
-
-1.1.1.1
-log
-@
-@
-text
-@@
