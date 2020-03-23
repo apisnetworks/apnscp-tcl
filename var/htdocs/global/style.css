@@ -1,0 +1,515 @@
+/*
+ * global CSS definitions
+ * affects all
+ */
+
+/*
+ * miscellaneous styles
+ */
+	BODY.bodynav {
+		marginwidth:0;
+		marginheight:0;
+		topmargin:0;
+		leftmargin:0;
+		background-color:#d3d3d3;
+	}
+	
+	DIV {
+		CURSOR: hand; 
+		PADDING-TOP: 3px;
+	}
+	DIV.void { CURSOR: default; }
+	LI.helpindex {
+		line-height: 15px;
+	}
+	
+	P.amit {
+		background-color:#ffffcc;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		text-align: justify;	
+		color:#000000;
+	}
+	
+/* 
+ * form control
+ */
+	INPUT.s {
+		BORDER: black 1px solid;
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		line-height: 15px;
+	}
+	
+	INPUT {
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		line-height: 15px;
+	}
+	
+	SELECT {
+		BORDER: black 1px solid;
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		line-height: 15px;
+	}
+	
+	TEXTAREA {
+		BORDER: black 1px solid;
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		line-height: 15px;
+		background-color: white;
+	}
+	
+/*
+ * table cell styles
+ */
+	TD {
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		color: #000000;
+		line-height: 15px;
+	}
+	
+    TD.experimental {
+        border: 2px dashed purple;
+        color: red;
+        padding: 3px;
+        line-height:15px;
+
+        
+    }
+	TD.amit1 {
+		background-color:#ffffcc;
+	}
+
+	TD.alternatecell1 {
+		background-color:#fefaff;
+	}
+	
+	TD.attn {
+		font-size:12px;
+		font-weight:bold;
+		background-color:#777777;
+		color:#000000;
+	}
+	
+	TD.bar {
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		text-align:left;
+		line-height: 15px;
+		color: #748D4B;
+		background: url('/images/navleft.gif') left repeat-y;
+		background-color: #E6E6DC;
+	}
+	
+	TD.body  {
+		background-color:#ffffff;
+		font-family: Verdana, Tahoma;
+		font-size:11px;
+		text-align:left;
+		line-height: 15px;
+		color: #000000;
+		font-weight: normal;
+	}
+	
+	TD.cell1 {
+		background-color:#E6E6DC;
+		color: #000000;
+		FONT-WEIGHT: NORMAL;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		font-size:11px;
+	}
+	
+	TD.cell1small {
+		FONT-WEIGHT: NORMAL;
+		background-color:#E6E6DC;
+		font-size:10px;
+		color: #000000;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.cell2 {
+		FONT-WEIGHT: NORMAL;
+		background-color:#E6E6DC;
+		font-size:11px;
+		color: #000000;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.cell2small {
+		background-color:#eeeeee; 
+		font-size:10px;
+		color: #000000;
+		FONT-WEIGHT: NORMAL;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	/*
+	 * this is used only with the Welcome screens
+	 */
+	TD.cell3 {
+		background-color:#f1f1f1; 
+		font-size:12px; 
+		color:black; 
+		FONT-WEIGHT: NORMAL;
+		font-family: Verdana, Tahoma;
+		background-image: url("/images/welcomebg.gif"); 
+		background-position: right; 
+		background-repeat:no-repeat;
+	}
+	
+	TD.cellnavbar {
+		background-color:#ffffff;
+		color: #000000;
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	
+	TD.contentbgcolor {
+		background-color:#ffffff;
+		color: #000000;
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.disabled {
+		background-color:#E6E6DC;
+		color:#aaaaaa;
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.error {
+		font-weight:bold;
+		background-color:maroon;
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		color:#ffffff;
+	}
+	
+	TD.footer {
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		color: #000000;
+	}
+	
+	TD.head { 
+		font-size:12px;
+		font-weight:bold;
+		BACKGROUND-COLOR: #748D4B;
+		color:#ffffff;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.head2 {
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		font-size:12px;
+		font-weight:bold;
+		background-color:#123456;
+		color:#000000;
+	}
+	
+	TD.head3 {
+		FONT-WEIGHT: bold; 
+		FONT-SIZE: 12px; 
+		COLOR: #ffffff; 
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		BACKGROUND-COLOR: #748D4B;
+	}
+	
+	TD.head4 {
+		FONT-WEIGHT: bold; 
+		BACKGROUND-color: #EBEDE6; 
+		COLOR: #000000;
+		FONT-SIZE:11px; 
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		font-weight: normal;
+	}
+	
+	TD.head5 {
+		FONT-WEIGHT: bold; 
+		BACKGROUND-color: #E6E6DC; 
+		COLOR: #000000;
+		FONT-SIZE:11px; 
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.header {
+		FONT-WEIGHT: bold;
+		COLOR: #ffffff;
+		FONT-SIZE: 12px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		BACKGROUND-COLOR: #ffffff;
+		padding: 0px;
+		background: url('/images/headerbg.gif') repeat top;
+	}
+
+	TD.help  {
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		background-color:#ffffff;
+		line-height: 15px;
+		font-weight: normal;
+		color: #000000;
+	}
+	
+	TD.hilite {
+		FONT-SIZE: 12px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		BACKGROUND-COLOR: #ccccff;
+	}
+	
+	TD.listeven {
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		BACKGROUND-COLOR: #E9EDE9;
+		font-weight: normal;
+		COLOR: #000000;
+	}
+	
+	TD.listodd {
+		FONT-SIZE: 11px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		COLOR: #000000;
+		font-weight: normal;
+		BACKGROUND-COLOR: #FFFFFF;
+	}
+	
+	TD.menu {
+		FONT-SIZE: 12px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		BACKGROUND-COLOR: #cccccc
+	}
+	
+	TD.mesg {
+		FONT-SIZE: 12px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+	}
+	
+	TD.navbarbgcolor {
+		background-color:#ffffff;
+	}	
+	
+	TD.subheader {
+		FONT-WEIGHT: bold;
+		BACKGROUND-color: #666666;
+		COLOR: #ffffff;
+		FONT-SIZE: 12px;
+		font-family: Verdana, Tahoma;
+		line-height: 15px;
+		text-align:left;
+		padding:0px;
+		background-image: url("/images/subheaderbg.gif");
+	}
+	
+	TD.tiny {
+		FONT-WEIGHT: bold;
+		FONT-SIZE: 11px;
+		COLOR: #ffffff;
+		font-family: Verdana, Tahoma;
+		text-align:left;
+		line-height: 15px;
+		BACKGROUND-COLOR: #666666;
+	}
+	
+	TD.nospacing { padding: 0px; }
+	TD.horzspacer {
+		padding: 0px;
+		background: url('/images/horzdot.gif') repeat center;
+		background-color: #748D4B;
+	}
+	TD.vertspacer {
+		padding: 0px;
+		background: url('/images/vertdot.gif') repeat center;
+		background-color: #748D4B;
+	}
+
+
+/*
+ * table styles
+ */
+	TABLE.contentbgcolor {
+		background-color:#ffffff;
+	}
+	
+	TABLE.frame {
+		background-color:#6487dc;
+	}
+	
+	TABLE.navbarbgcolor {
+		background-color:#ffffff;
+	}
+	
+	TABLE.navbar1bgcolor {
+		background-color:#ffffff;
+	}
+	
+/*
+ * independent styles
+ */
+	.body {
+		font-size:12px;
+		color:#000000;
+	}
+	
+	.even {
+		BACKGROUND-COLOR: #F1F1F1; 
+		border: 1px solid #000000;
+	}
+	
+	.footer {
+		font-size:12px; 
+		color:#000066;
+	}
+	
+	.header1 {
+		font-size:11pt;
+		color:#000088;
+		font-weight:bold;
+	}
+	
+	.header2 {
+		font-size:12px;
+		color:#000066;
+		font-style:italic;
+	}
+	
+	.helpstyle  {
+		background:#ffffff;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		margin-left: 12px;
+		margin-right: 12px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		text-align: justify;
+		line-height: 10pt;
+	}
+	
+	.odd {
+		BACKGROUND-COLOR: #FFFFFF; 
+		border: 1px solid #000000;
+	}
+	
+	.title {
+		font-size:14pt;
+		color:#000066;
+		font-weight:bold;
+	}
+
+/*
+ * link style section
+ */
+
+A { 
+	color:#000000;
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	line-height: 15px;
+	align:center;
+	text-decoration:underline;
+}
+
+A:hover {
+	color:#000000;
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	line-height: 15px;
+	text-decoration:none;
+}
+
+A.av   {
+	font-size:12px;
+	font-weight:bold;
+	color:#000000;
+	text-decoration:none;
+}
+
+/* the following two are for the left-most frame */
+A.bar {
+	font-family: Verdana, Tahoma;
+	text-align:left;
+	line-height: 15px;
+	font-size:11px;
+	color: #000000;
+	TEXT-DECORATION: none;
+}
+
+A.bar:hover {
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	text-align:left;
+	line-height: 15px;
+	color: #666666;
+	TEXT-DECORATION: underline;
+}
+
+A.la {
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	text-align:left;
+	line-height: 15px;
+	color:#ffffff;
+}
+
+A.menu {
+	FONT-WEIGHT: bold;
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	line-height: 15px;
+	COLOR: black;
+	TEXT-DECORATION: none
+}
+
+A.sitelist {
+	color:#000000;
+}
+
+A.totd {
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	text-align:left;
+	line-height: 15px;
+	font-weight:bold;
+	color:black;
+	TEXT-DECORATION: NONE;
+}
+
+A.totd:hover {
+	color:black;
+	FONT-WEIGHT: bold; 
+	font-family: Verdana, Tahoma;
+	font-size:11px;
+	text-align:left;
+	line-height: 15px;
+	TEXT-DECORATION: UNDERLINE;
+}
