@@ -24,4 +24,6 @@
 	$mysqlhash['ffaddict_forums'] = "site2";
 	$mysqlhash['mymail']   = "site40";
 	$mysqlhash['agdn']     = "site40";
+	$mysqlhash['blog']     = "site40";
+	$mysqlhash['mediawiki'] = "site40";
 ?>

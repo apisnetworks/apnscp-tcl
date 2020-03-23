@@ -31,7 +31,7 @@
 	$myGraph->Clean();
 	$d = split(" ",CheckLocalServer(GetUserNumRef($gDomainName,$gUserName),"uquota")); 
 	$used = ($d[0]/1024);
-	$quota = ($d[1]/1024);
+	$quota = @($d[1]/1024);
 	unset($d);
 	if ($quota) {
 		$myGraph->AddData("used", $used);

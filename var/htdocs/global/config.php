@@ -14,7 +14,7 @@
 	*        development: Matt Saladna
 	*        msaladna@apisnetworks.com
 	*           (c) 2003 Apis Networks
-	* $Id: config.php,v 1.0 RC4-2 2003/03/23 23:12:01 msaladna Exp $
+	* $Id: config.php,v 1.1.1.1 2004/12/22 06:16:20 root Exp $
 	*********************************/
 	
 	/****************************/
@@ -104,7 +104,7 @@
 	$urchin4Enabled = true;
 	
 	// URL to Urchin 5 front-end
-	$urchin4Path = "https://urchin.vector.apisnetworks.com".$_SERVER['HTTP_HOST']."/";
+	$urchin4Path = "https://urchin.vector.apisnetworks.com/";
 	
 	/*
 	* osCommerce installed?
@@ -134,7 +134,7 @@
 	$mysqlcronjobEnabled = true & isset($_COOKIE['mysql_enabled']) ? $_COOKIE['mysql_enabled'] : 0;
 	
 	// path to phpMyAdmin
-	$phpmyadminPath = "http://".$_SERVER['HTTP_HOST']."/MyAdmin/";
+	$phpmyadminPath = "http://vector.apisnetworks.com/MyAdmin/";
 	
 	//  enabled PostgreSQL accounts?
 	$postgresqlEnabled = true & (stristr($_COOKIE['ocw_username'],"@") && IsAdmin($gDomainName,$gUserName) ) ? PostgresqlInstalled($gDomainName) : 0 ;
@@ -156,7 +156,7 @@
 	$phppgadminEnabled = true & $postgresqlEnabled;
 	
 	// path to phpPgAdmin
-	$phppgadminPath = "http://".$_SERVER['HTTP_HOST']."/phpPgAdmin/";
+	$phppgadminPath = "http://vector.apisnetworks.com/phpPgAdmin/";
 	
 	
 	/****************************/

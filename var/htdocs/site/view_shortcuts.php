@@ -19,11 +19,11 @@
         * functions native to site and user admins
         * are derived from ../global/functions.php
         */
-        error_reporting(E_ALL);
-        include "../global/sitefunctions.php";
+	error_reporting(E_ALL);
+        //xdebug_start_profiling();
+	include "../global/sitefunctions.php";
         include "../global/constants.php";
         include "../global/graph.php";
-
         $myGraph = new Graph(120,120*.7 + 10);
         /* please check apnscpcore.php for class instantiation and
            image dimensions */
@@ -58,7 +58,6 @@
                                                 $gDomainName.'-'.$gUserName.'dq.png'
         );
 ?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
@@ -1321,6 +1320,11 @@ ceil($diskUsage),
 </TABLE>
 
 <div align=right style="color:#666666; font-size:10px; font-family: monospace normal, courier new, courier;"><?php print(APNSCPID); ?></div>
+<?php
+//xdebug_dump_function_profile(XDEBUG_PROFILER_SD_LBL);
 
+//xdebug_dump_function_profile(XDEBUG_PROFILER_CPU);
+//xdebug_dump_function_trace(); 
+?>
 </BODY>
 </HTML>

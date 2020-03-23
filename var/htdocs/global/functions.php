@@ -14,7 +14,7 @@
 	*        development: Matt Saladna
 	*        msaladna@apisnetworks.com
 	*           (c) 2003 Apis Networks
-	* $Id: functions.php,v 1.0 RC4-2p1 2003/03/30 17:20:13 msaladna Exp $
+	* $Id: functions.php,v 1.1.1.1 2004/12/22 06:16:20 root Exp $
 	*********************************/
 	
 	/*
@@ -29,7 +29,7 @@
 	*/
 	define('ERROR',-1); 
 	define('DEBUG', 1);
-	define('APNSCPID', '$Id: apnscp,v 1.1 RC1 2004/03/09 01:08:10 msaladna Exp $');
+	define('APNSCPID', '$Id: functions.php,v 1.1.1.1 2004/12/22 06:16:20 root Exp $');
 	
 	/* 
 	* strip quotes off quoted material
@@ -37,7 +37,7 @@
 	* we ignore $_REQUEST since we handle through cookies
 	* and $_REQUEST just contains $_COOKIE, $_GET, and $_POST
 	* merged
-	*/	
+	*/
 	$_COOKIE['ocw_username'] = trim($_COOKIE['ocw_username'],"\\\"");
 	$_COOKIE['ocw_lang'] = isset($_COOKIE['ocw_lang']) ? trim($_COOKIE['ocw_lang'],"\\\"") : "";
 	$_COOKIE['ocw_domainconf'] = isset($_COOKIE['ocw_domainconf']) ? trim($_COOKIE['ocw_domainconf'],"\\\"") : "";
@@ -45,11 +45,14 @@
 	$_COOKIE['ocw_cookie'] = trim(trim($_COOKIE['ocw_cookie'],"\\\"")); // remove newline and \"'s
 	//Debug();
 	//ParseConfiguration();
+	if (substr_count($_COOKIE['ocw_username'],"@") > 1) {
+          $_COOKIE['ocw_username'] = substr($_COOKIE['ocw_username'],0,strrpos($_COOKIE['ocw_username'],"@"));
+        }     
 	$gHiddenServices = GetHiddenServices();
 	$gUserName = stristr($_COOKIE['ocw_username'],"@") ? substr($_COOKIE['ocw_username'],0,strpos($_COOKIE['ocw_username'],"@")) : $_COOKIE['ocw_username'];
 	$gDomainName = stristr($_COOKIE['ocw_username'],"@") ? substr($_COOKIE['ocw_username'],strlen($gUserName)+1) : "";
 	//Debug();
-    ParseConfiguration();
+	ParseConfiguration();
 	/*
 	* locale-specific, but we *don't*
 	* really need this.
@@ -179,7 +182,7 @@
 		fputs($res,trim($stream));
 		$data = '';
 		while (!feof($res))
-			$data .= fgets ($res,128);
+			$data .= fread ($res,4096);
 		fclose ($res);
 		return trim($data);
 	}
@@ -498,27 +501,28 @@
 		}
 		if (! (isset($_COOKIE['ocw_entrypoint']) && isset($_COOKIE['ocw_username']) && isset($_SERVER['HTTP_REFERER'])) ) 
 			$kill = 1;
-		else if ($loginType == 1 && ($gUserName != "admin" || !ereg(":[0-9]+/webhost$",$_COOKIE['ocw_entrypoint'])
-			|| !ereg(":[0-9]+(/webhost/navbar|/webhost/view_shortcuts|/webhost/appliance/provisions/.*|/webhost/)$",$_SERVER['HTTP_REFERER']))) {
+		else if ($loginType == 1 && ($gUserName != "admin" || !ereg("/webhost$",$_COOKIE['ocw_entrypoint'])
+			|| !ereg("(/webhost/navbar|/webhost/view_shortcuts|/webhost/appliance/provisions/.*|/webhost/)$",$_SERVER['HTTP_REFERER']))) {
 			// invalid admin
 			$kill = 1;
 			if (DEBUG)
 				$area = 1;
-		} else if ($loginType == 2 && !eregi(":[0-9]+/services/reseller/resellercp$",$_COOKIE['ocw_entrypoint'])) {
+		} else if ($loginType == 2 && !eregi("/services/reseller/resellercp$",$_COOKIE['ocw_entrypoint'])) {
 			// invalid reseller
 			$kill = 1;
 			if (DEBUG)
 				$area = 2;
-		} else if ($loginType == 3 && (!ereg(":[0-9]+/webhost/services/virtualhosting/siteadmin$",$_COOKIE['ocw_entrypoint']) || !IsAdmin($gDomainName,$gUserName)
-			|| !ereg(":[0-9]+(/webhost/services/virtualhosting/siteadmin(/?.*)?|/webhost/services/virtualhosting/siteadmin/navbar|/webhost/services/virtualhosting(/)?|".
+		} else if ($loginType == 3 && (!ereg("/webhost/services/virtualhosting/siteadmin$",$_COOKIE['ocw_entrypoint']) || !IsAdmin($gDomainName,$gUserName)
+			|| !ereg("(/webhost/services/virtualhosting/siteadmin(/?.*)?|/webhost/services/virtualhosting/siteadmin/navbar|/webhost/services/virtualhosting(/)?|".
 			"/webhost/services/virtualhosting/siteadmin/view_shortcuts(/)?|/webhost/services/virtualhosting/siteadmin/provisions/.*)$",
 			$_SERVER['HTTP_REFERER']))) {
 				// invalidate and destroy the cookie.
 				$kill = 1;
+				//print("lt: ".$loginType."; ep: ".$_COOKIE['ocw_entrypoint']."; ia: ".IsAdmin($gDomainName,$gUserName)."; re:".$_SERVER['HTTP_REFERER']);
 				if (DEBUG)
 					$area = 3;
-		} else if ($loginType == 4 && (!eregi(":[0-9]+/webhost/services/virtualhosting/useradmin$",$_COOKIE['ocw_entrypoint'])  || !IsUser($gDomainName,$gUserName)
-			|| !ereg(":[0-9]+(/webhost/services/virtualhosting/useradmin/|/webhost/services/virtualhosting/useradmin/provisions/.*|".
+		} else if ($loginType == 4 && (!eregi("/webhost/services/virtualhosting/useradmin$",$_COOKIE['ocw_entrypoint'])  || !IsUser($gDomainName,$gUserName)
+			|| !ereg("(/webhost/services/virtualhosting/useradmin/|/webhost/services/virtualhosting/useradmin/provisions/.*|".
 			"/webhost/services/virtualhosting/useradmin/userinfo|/webhost/services/virtualhosting/useradmin/navbar|".
 			"/webhost/services/virtualhosting/useradmin/view_shortcuts)$",$_SERVER['HTTP_REFERER']) )) {
 				// invalid user
@@ -543,11 +547,11 @@
 	* username is the admin of the site
 	*/
 	function IsAdmin($mDomain, $mUser) {
-		$fp = @fopen("/home/virtual/".$mDomain."/etc/group", "r");
+		$fp = @fopen("/home/virtual/".$mDomain."/etc/passwd", "r");
 		if ($fp)
 			while (!feof($fp)) {
 				$line = fgets($fp);
-				if (ereg("^".$mUser.":",trim($line))) {
+				if (preg_match('/^'.$mUser.':x:([[:digit:]]+?):\1:'.$mDomain.'/',trim($line))) {
 					@fclose($fp);
 					return 1;
 				}

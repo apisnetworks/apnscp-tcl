@@ -12,6 +12,7 @@
 	mysql_select_db($mysql['standard']['database']);
 	$retVal = 0;
 	if (isset($_POST['go']) && $_POST['closenow']) { // from resolution post
+		print "YAY!";
 		$q2 = mysql_query("select email, category, data, date from troubletickets where id = '".$_POST['id']."' and owner = '".$_POST['owner']."'");
 		$row = mysql_fetch_row($q2);
 		$q = @mysql_query("insert into resolutions values('".$_POST['id']."','".$_POST['owner']."','".time()."','".addslashes(htmlentities($_POST['resolution'],ENT_QUOTES))."');");
@@ -28,7 +29,7 @@
 		$q2 = mysql_query("select email, category, data, date from troubletickets where id = '".$_POST['id']."' and owner = '".$_POST['owner']."'");
 		$row = mysql_fetch_row($q2);
 		$q = mysql_query("insert into resolutions values('".$_POST['id']."','".$_POST['owner']."','".time()."','');");
-		$q = mysql_query("update resolutions set resolution = concat(resolution,'\n\nThe following notes were added on ".date("M j Y g:i:s A",time()).":\n".addslashes(html_entities($_POST['resolution'],ENT_QUOTES))."') where id = '".$_POST['id']."' and owner = '".$_POST['owner']."';");
+		$q = mysql_query("update resolutions set resolution = concat(resolution,'\n\nThe following notes were added on ".date("M j Y g:i:s A",time()).":\n".addslashes(htmlentities($_POST['resolution'],ENT_QUOTES))."') where id = '".$_POST['id']."' and owner = '".$_POST['owner']."';");
 		$q2 = mysql_query("update troubletickets set status = '1' where id = '".$_POST['id']."' and owner = '".$_POST['owner']."';");
 		$newdata = $_POST['resolution'];
 		$origdata = stripslashes($row[2]);

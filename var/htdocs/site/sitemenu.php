@@ -77,7 +77,7 @@
 		?>
 		&nbsp;<a href="/webhost/services/virtualhosting/siteadmin/services/vhbackup/form_stream_bk" class=bar target=main>Backup</a>/<a href="/webhost/services/virtualhosting/siteadmin/services/vhbackup/form_restore_ftp" class=bar target=main>Restore</a><br>
 		&nbsp;<a href="/webhost/services/virtualhosting/siteadmin/services/vhbackup/form_appliance_scheduled_bk" class=bar target=main>Scheduled Backup</a><br />
-		fg<?php
+		<?php
 		}
 		if ($_COOKIE['files_enabled']) {
 		?>

@@ -4,7 +4,7 @@
 #    circumvents the 'nobody' level of the Apache service
 #    which Ensim runs.
 #                   Author: Matt Saladna/msaladna@apisnetworks.com
-# $Id: localServer.tcl,v 1.52 2003/03/28 17:50:05 msaladna Exp $ */
+# $Id: lservice,v 1.1.1.1 2004/12/22 06:16:20 root Exp $ */
 # \
 exec tclsh "$0" ${1+"$@"}
 
@@ -27,6 +27,11 @@ exec tclsh "$0" ${1+"$@"}
 # load up the Tcl PostgreSQL interface
 load /usr/lib/libpgtcl.so
 
+proc ::time {} {
+	if {![info exists ::debug]} {
+		set ::debug [clock seconds]
+	}
+}
 proc ::bgerror {args} {
     if {$::LocalServer::debug} {
         puts [join "$args $::errorCode $::errorInfo"]
@@ -560,12 +565,11 @@ proc ::LocalServer::ReadRequest {sock addr port} {
         }
 
         uquota {
-            set quotafp [open "| /usr/bin/quota -u $host"]
-            set quota [read $quotafp]
-            catch {close $quotafp}
-            if {[regexp {/[^[:space:]]+\s+([0-9]+)\s+([0-9]+)\s} [lindex [split $quota "\n"] 2] {} match match2]} {
-                set quota "$match $match2"
-                puts $sock $quota
+            set quotafp [open "| /usr/sbin/repquota -ua | grep  #$host"]
+            set quota [string trim [read $quotafp]]
+            catch {close $quotafp} err
+	    if {![string equal "$quota" ""]} {
+                puts $sock "[lindex $quota 2] [lindex $quota 3]"
             } else {
                 puts $sock "-1"
             }
@@ -824,3 +828,12 @@ if {![file exists [file join /usr apnscp etc .license]]} {
 }
 
 ::LocalServer::InstantiateServer
+
+#
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: sw=4 ts=4 fdm=marker
+# vim<600: sw=4 ts=4
+#

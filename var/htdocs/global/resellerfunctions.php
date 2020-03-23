@@ -12,7 +12,7 @@
 	*        development: Matt Saladna
 	*        msaladna@apisnetworks.com
 	*           (c) 2003 Apis Networks
-	* $Id: resellerfunctions.php,v 1.0 RC4 2003/03/08 13:10:54 msaladna Exp $
+	* $Id: resellerfunctions.php,v 1.1.1.1 2004/12/22 06:16:20 root Exp $
 	*********************************/
 	
 	include_once "functions.php";

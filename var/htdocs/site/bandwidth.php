@@ -5,7 +5,6 @@
 	*  for further restrictions.
 	*/
 	include "../global/sitefunctions.php";
-    dl('statistics.so');
 	error_reporting(E_ALL);
 	$tmpData = CheckLocalServer($gDomainName,"bwlog");
     

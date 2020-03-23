@@ -300,7 +300,7 @@
                            $this->color['shadow'],
                            IMG_ARC_PIE|IMG_ARC_EDGED
             );
-            if (($mFlags & 'OPTION_OUTLINE') == 'OPTION_OUTLINE') {
+            if (($mFlags & 'OPTION_OUTLINE') == 'OPTION_OUTLINE' ) {
                 imagefilledarc($this->canvas,
                                $x1,
                                (($mFlags & 'OPTION_ANTIALIASED') == 'OPTION_ANTIALIASED') ? $y1+14 : $y1+6,

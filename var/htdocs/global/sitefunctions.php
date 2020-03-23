@@ -7,9 +7,8 @@
 	*        development: Matt Saladna
 	*        msaladna@apisnetworks.com
 	*           (c) 2003 Apis Networks
-	* $Id: sitefunctions.php,v 1.0 RC4 2003/03/16 14:43:25 msaladna Exp $
+	* $Id: sitefunctions.php,v 1.1.1.1 2004/12/22 06:16:20 root Exp $
 	*********************************/
-	
 	include_once "functions.php";
 	
 	/*
