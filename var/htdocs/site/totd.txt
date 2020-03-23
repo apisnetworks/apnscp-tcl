@@ -1,0 +1,29 @@
+Did you know....
+The user quota is not a permanent number. To add more users to your virtual domain just submit a trouble ticket to increase the maximum number of users allocated to your virtual domain.
+
+Need to backup your MySQL database regularly? 
+Why not automatically schedule backups with a 'MySQL Cronjob'?
+
+Frontpage Server Extensions are incompatible with normal .htaccess files.
+To revert back to Apache's method of handling .htaccess files, please click the 'Enable/Disable Frontpage' option.
+You will still be able to password-protect your directories and add custom users/groups that may access the directories, but this will be handled by Apache.
+
+osCommerce is an open-sourced alternative to Miva Merchant so if you want to setup an online shop, and you don't want to be hassled with a $595 setup fee, then osCommerce is probably your choice.
+
+If you require additional MySQL databases or additional users to be able to connect to the database, file a trouble ticket to create an additional database or grant privileges to new users.  There is no setup fee associated with a new database; however, please keep requests reasonable.
+
+We are always looking for new ideas to further enhance the control panel.  If you have an idea, voice it under 'Request New Features'.
+
+Did you know....
+Users of a specific domain must append the @thedomain.com to their login so Ensim WEBppliance knows to which domain a user belongs.
+If this were not implemented user 'joe' of domaina.com might get 'joe' of domainb.com's daily porn e-mails.  That is why the @somedomain.com is required when logging into the mail server and FTP server.
+
+You are automatically notified when you have exceeded your monthly bandwidth; however, there is no method of notification when your disk quota reaches the maximum amount allocated.  You might wish to check your quota regularly or else your account may no longer write to the log file or do any disk activity, period.
+
+Every site has crontab support, albeit the MySQL Cronjobs lie outside of your cron daemon, if you want to - you can easily add a new task to run nightly, or even hourly.  Type 'man crontab' on your shell and learn of its power.
+
+Every site enabled with IMAP/POP3 also has Fetchmail.  Check the FAQs section for a handy trick to automatically download e-mail messages from a remote server into your POP3/IMAP account, or even have them automatically forwarded elsewhere (such as to a cellular phone).
+
+Majordomo manages mailing lists to keep your visitors up to date with the current activity.  Try it sometime.
+
+As of RC2 of the control panel, bandwidth, user data, and site contact e-mail addresses are cached for 10 minutes to reduce server load - so your data for that is not always real-time.  Your disk quota is real-time though.

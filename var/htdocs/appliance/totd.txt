@@ -1,0 +1,11 @@
+To further save space, you can compress all your log files in gzip format whenever they are rotated.  Try uncommenting the "#compress" line in your /etc/logrotate.conf file!
+
+Ensim WEBppliance logs HTTP errors in the /usr/lib/opcenter/var directory and apnscp logs backend and frontend errors in the /usr/apnscp/var/log directory.
+
+Are your users complaining of out-dated statistics? Try changing the cache option in /usr/apnscp/etc/apnscp.ini and tweak the latency (in seconds) of how long site data remains inside the interpreter.
+
+You can extend and implement your own features through the apnscp.  Visit <a href="http://dev.apisnetworks.com/" target="_blank">http://dev.apisnetworks.com/</a> to view the documentation and simple extension examples - it's really quite easy!
+
+Your mileage may vary.
+
+For the love of all that is good and holy, please read the documentation before modifying anything.
